@@ -492,6 +492,7 @@ services:
     # Set the redis password when startup redis server.
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      REDISCLI_AUTH: ${REDIS_PASSWORD:-}
     command: ["sh", "-c", 'exec docker-entrypoint.sh redis-server --requirepass "$$REDIS_PASSWORD"']
     healthcheck:
       test:
