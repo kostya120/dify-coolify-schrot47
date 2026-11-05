@@ -428,6 +428,13 @@ services:
   web:
     image: langgenius/dify-web:1.19.0
     restart: always
+    environment:
+      # Coolify replaces service env_file entries with its generated .env.
+      # Set the browser-facing API URLs explicitly so Dify does not fall back
+      # to its localhost development defaults.
+      CONSOLE_API_URL: ${CONSOLE_API_URL:-https://dify.schrot47.asia}
+      SERVER_CONSOLE_API_URL: ${SERVER_CONSOLE_API_URL:-http://api:5001}
+      APP_API_URL: ${APP_API_URL:-https://dify.schrot47.asia}
     env_file:
       - path: ./docker/envs/core-services/web.env
         required: false
