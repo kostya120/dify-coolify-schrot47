@@ -633,6 +633,15 @@ services:
       - ssrf_proxy_network
       - default
     environment:
+      DB_HOST: ${DB_HOST:-db_postgres}
+      DB_USERNAME: ${DB_USERNAME:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-difyai123456}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_DATABASE: ${DB_PLUGIN_DATABASE:-dify_plugin}
+      DIFY_INNER_API_KEY: ${PLUGIN_DIFY_INNER_API_KEY:-}
+      DIFY_INNER_API_URL: ${PLUGIN_DIFY_INNER_API_URL:-http://api:5001}
+      SERVER_KEY: ${PLUGIN_DAEMON_KEY:-}
+      SERVER_PORT: ${PLUGIN_DAEMON_PORT:-5002}
       PLUGIN_REMOTE_INSTALLING_PORT: ${PLUGIN_DEBUGGING_PORT:-5003}
     ports:
       - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5003}:${PLUGIN_DEBUGGING_PORT:-5003}"
@@ -781,6 +790,9 @@ services:
       - path: ./envs/infrastructure/ssrf-proxy.env
         required: false
       - ./envs/infrastructure/ssrf-proxy.defaults
+    environment:
+      COREDUMP_DIR: ${SSRF_COREDUMP_DIR:-/var/spool/squid}
+      HTTP_PORT: ${SSRF_HTTP_PORT:-3128}
     networks:
       # Needs to reach api and agent_backend as forward-proxy destinations.
       - default
@@ -796,6 +808,9 @@ services:
       - path: ./envs/infrastructure/ssrf-proxy.env
         required: false
       - ./envs/infrastructure/ssrf-proxy.defaults
+    environment:
+      COREDUMP_DIR: ${SSRF_COREDUMP_DIR:-/var/spool/squid}
+      HTTP_PORT: ${SSRF_HTTP_PORT:-3128}
     image: ubuntu/squid:latest
     restart: always
     volumes:
@@ -860,6 +875,7 @@ services:
     environment:
       NGINX_SSL_PORT: ${NGINX_SSL_PORT:-443}
       NGINX_PORT: ${NGINX_PORT:-80}
+      NGINX_WORKER_PROCESSES: ${NGINX_WORKER_PROCESSES:-auto}
     depends_on:
       - api
       - web
