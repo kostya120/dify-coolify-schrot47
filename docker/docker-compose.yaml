@@ -7,71 +7,71 @@
 # Shared configuration using YAML anchors and env_file
 x-shared-api-config: &shared-api-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ./docker/envs/core-services/shared.env
       required: false
-    - path: ./envs/core-services/api-worker.env
+    - path: ./docker/envs/core-services/api-worker.env
       required: false
-    - path: ./envs/security.env
+    - path: ./docker/envs/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ./docker/envs/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ./docker/envs/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ./docker/envs/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ./docker/envs/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ./docker/envs/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ./docker/envs/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ./docker/envs/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ./docker/envs/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ./docker/envs/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ./docker/envs/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ./docker/envs/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ./docker/envs/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ./docker/envs/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ./docker/envs/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ./docker/envs/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ./docker/envs/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ./docker/envs/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ./docker/envs/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ./docker/envs/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ./docker/envs/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ./docker/envs/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ./docker/envs/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ./docker/envs/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ./docker/envs/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ./docker/envs/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ./docker/envs/infrastructure/milvus-standalone.env
       required: false
-    - path: ./envs/core-services/api.env
+    - path: ./docker/envs/core-services/api.env
       required: false
     - ./.env
-    - path: ./envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
+    - path: ./docker/envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
       required: false
-    - ./envs/core-services/api-worker.defaults
-    - ./envs/core-services/api.defaults
+    - ./docker/envs/core-services/api-worker.defaults
+    - ./docker/envs/core-services/api.defaults
   networks:
     - ssrf_proxy_network
     - default
@@ -79,71 +79,71 @@ x-shared-api-config: &shared-api-config
 
 x-shared-worker-config: &shared-worker-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ./docker/envs/core-services/shared.env
       required: false
-    - path: ./envs/core-services/api-worker.env
+    - path: ./docker/envs/core-services/api-worker.env
       required: false
-    - path: ./envs/security.env
+    - path: ./docker/envs/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ./docker/envs/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ./docker/envs/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ./docker/envs/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ./docker/envs/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ./docker/envs/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ./docker/envs/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ./docker/envs/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ./docker/envs/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ./docker/envs/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ./docker/envs/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ./docker/envs/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ./docker/envs/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ./docker/envs/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ./docker/envs/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ./docker/envs/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ./docker/envs/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ./docker/envs/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ./docker/envs/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ./docker/envs/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ./docker/envs/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ./docker/envs/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ./docker/envs/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ./docker/envs/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ./docker/envs/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ./docker/envs/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ./docker/envs/infrastructure/milvus-standalone.env
       required: false
-    - path: ./envs/core-services/worker.env
+    - path: ./docker/envs/core-services/worker.env
       required: false
     - ./.env
-    - path: ./envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
+    - path: ./docker/envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
       required: false
-    - ./envs/core-services/api-worker.defaults
-    - ./envs/core-services/worker.defaults
+    - ./docker/envs/core-services/api-worker.defaults
+    - ./docker/envs/core-services/worker.defaults
   networks:
     - ssrf_proxy_network
     - default
@@ -159,27 +159,27 @@ x-knowledge-fs-celery-worker: &knowledge-fs-celery-worker
   # Match the two-hour default task deadline plus shutdown margin for long document jobs.
   stop_grace_period: 125m
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ./docker/envs/core-services/shared.env
       required: false
-    - path: ./envs/core-services/api-worker.env
+    - path: ./docker/envs/core-services/api-worker.env
       required: false
-    - path: ./envs/security.env
+    - path: ./docker/envs/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ./docker/envs/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ./docker/envs/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ./docker/envs/databases/redis.env
       required: false
-    - path: ./envs/core-services/knowledge-fs.env
+    - path: ./docker/envs/core-services/knowledge-fs.env
       required: false
-    - path: ./envs/core-services/knowledge-fs-worker.env
+    - path: ./docker/envs/core-services/knowledge-fs-worker.env
       required: false
-    - path: ./envs/core-services/worker.env
+    - path: ./docker/envs/core-services/worker.env
       required: false
     - ./.env
-    - ./envs/core-services/api-worker.defaults
-    - ./envs/core-services/worker.defaults
+    - ./docker/envs/core-services/api-worker.defaults
+    - ./docker/envs/core-services/worker.defaults
   environment: &knowledge-fs-celery-environment
     MODE: worker
     MIGRATION_ENABLED: "false"
@@ -200,71 +200,71 @@ x-knowledge-fs-celery-worker: &knowledge-fs-celery-worker
 
 x-shared-worker-beat-config: &shared-worker-beat-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ./docker/envs/core-services/shared.env
       required: false
-    - path: ./envs/core-services/api-worker.env
+    - path: ./docker/envs/core-services/api-worker.env
       required: false
-    - path: ./envs/security.env
+    - path: ./docker/envs/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ./docker/envs/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ./docker/envs/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ./docker/envs/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ./docker/envs/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ./docker/envs/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ./docker/envs/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ./docker/envs/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ./docker/envs/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ./docker/envs/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ./docker/envs/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ./docker/envs/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ./docker/envs/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ./docker/envs/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ./docker/envs/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ./docker/envs/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ./docker/envs/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ./docker/envs/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ./docker/envs/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ./docker/envs/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ./docker/envs/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ./docker/envs/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ./docker/envs/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ./docker/envs/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ./docker/envs/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ./docker/envs/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ./docker/envs/infrastructure/milvus-standalone.env
       required: false
-    - path: ./envs/core-services/worker-beat.env
+    - path: ./docker/envs/core-services/worker-beat.env
       required: false
     - ./.env
-    - path: ./envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
+    - path: ./docker/envs/vectorstores/${VECTOR_STORE:-weaviate}.defaults
       required: false
-    - ./envs/core-services/api-worker.defaults
-    - ./envs/core-services/worker-beat.defaults
+    - ./docker/envs/core-services/api-worker.defaults
+    - ./docker/envs/core-services/worker-beat.defaults
   networks:
     - ssrf_proxy_network
     - default
@@ -287,7 +287,7 @@ services:
         chown -R 1001:1001 /app/api/storage && touch "$${FLAG_FILE}"
         echo "Permissions initialized. Exiting."
     volumes:
-      - ./volumes/app/storage:/app/api/storage
+      - ./docker/volumes/app/storage:/app/api/storage
     restart: "no"
 
   # API service
@@ -308,7 +308,7 @@ services:
         condition: service_started
     volumes:
       # Mount the storage directory to the container, for storing user files.
-      - ./volumes/app/storage:/app/api/storage
+      - ./docker/volumes/app/storage:/app/api/storage
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
       interval: 30s
@@ -347,7 +347,7 @@ services:
         condition: service_started
     volumes:
       # Mount the storage directory to the container, for storing user files.
-      - ./volumes/app/storage:/app/api/storage
+      - ./docker/volumes/app/storage:/app/api/storage
     networks:
       - ssrf_proxy_network
       - default
@@ -370,7 +370,7 @@ services:
         condition: service_started
     volumes:
       # Mount the storage directory to the container, for storing user files.
-      - ./volumes/app/storage:/app/api/storage
+      - ./docker/volumes/app/storage:/app/api/storage
     healthcheck:
       test: ["CMD-SHELL", "celery -A celery_healthcheck.celery inspect ping"]
       interval: ${COMPOSE_WORKER_HEALTHCHECK_INTERVAL:-30s}
@@ -413,19 +413,19 @@ services:
     image: langgenius/dify-web:1.19.0
     restart: always
     env_file:
-      - path: ./envs/core-services/web.env
+      - path: ./docker/envs/core-services/web.env
         required: false
-      - path: ./envs/security.env
+      - path: ./docker/envs/security.env
         required: false
       - ./.env
-      - ./envs/core-services/web.defaults
+      - ./docker/envs/core-services/web.defaults
 
   # The PostgreSQL database.
   db_postgres:
     env_file:
-      - path: ./envs/databases/db-postgres.env
+      - path: ./docker/envs/databases/db-postgres.env
         required: false
-      - ./envs/databases/db-postgres.defaults
+      - ./docker/envs/databases/db-postgres.defaults
     image: postgres:15-alpine
     profiles:
       - postgresql
@@ -444,7 +444,7 @@ services:
         -c "statement_timeout=$$POSTGRES_STATEMENT_TIMEOUT"
         -c "idle_in_transaction_session_timeout=$$POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT"
     volumes:
-      - ./volumes/db/data:/var/lib/postgresql/data
+      - ./docker/volumes/db/data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", 'pg_isready -h db_postgres -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
       interval: 1s
@@ -454,14 +454,14 @@ services:
   # The mysql database.
   redis:
     env_file:
-      - path: ./envs/databases/redis.env
+      - path: ./docker/envs/databases/redis.env
         required: false
-      - ./envs/databases/redis.defaults
+      - ./docker/envs/databases/redis.defaults
     image: redis:6-alpine
     restart: always
     volumes:
       # Mount the redis data directory to the container.
-      - ./volumes/redis/data:/data
+      - ./docker/volumes/redis/data:/data
     # Set the redis password when startup redis server.
     command: ["sh", "-c", 'exec docker-entrypoint.sh redis-server --requirepass "$$REDIS_PASSWORD"']
     healthcheck:
@@ -476,15 +476,15 @@ services:
     image: langgenius/dify-sandbox:0.2.15
     restart: always
     env_file:
-      - path: ./envs/core-services/sandbox.env
+      - path: ./docker/envs/core-services/sandbox.env
         required: false
-      - path: ./envs/security.env
+      - path: ./docker/envs/security.env
         required: false
       - ./.env
-      - ./envs/core-services/sandbox.defaults
+      - ./docker/envs/core-services/sandbox.defaults
     volumes:
-      - ./volumes/sandbox/dependencies:/dependencies
-      - ./volumes/sandbox/conf:/conf
+      - ./docker/volumes/sandbox/dependencies:/dependencies
+      - ./docker/volumes/sandbox/conf:/conf
     healthcheck:
       test: ["CMD-SHELL", 'curl -f "http://localhost:$$SANDBOX_PORT/health"']
     networks:
@@ -504,7 +504,7 @@ services:
     command: ["shellctl", "serve", "--listen", "0.0.0.0:5004", "--require-auth-token"]
     restart: always
     env_file:
-      - path: ./envs/core-services/local-sandbox.env
+      - path: ./docker/envs/core-services/local-sandbox.env
         required: false
     environment:
       - SHELLCTL_AUTH_TOKEN=${DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN:-${DIFY_AGENT_SHELLCTL_AUTH_TOKEN:-}}
@@ -529,23 +529,23 @@ services:
     image: langgenius/dify-plugin-daemon:0.6.14-local
     restart: always
     env_file:
-      - path: ./envs/core-services/shared.env
+      - path: ./docker/envs/core-services/shared.env
         required: false
-      - path: ./envs/core-services/api-worker.env
+      - path: ./docker/envs/core-services/api-worker.env
         required: false
-      - path: ./envs/core-services/plugin-daemon.env
+      - path: ./docker/envs/core-services/plugin-daemon.env
         required: false
-      - path: ./envs/security.env
+      - path: ./docker/envs/security.env
         required: false
-      - path: ./envs/databases/db-postgres.env
+      - path: ./docker/envs/databases/db-postgres.env
         required: false
-      - path: ./envs/databases/db-mysql.env
+      - path: ./docker/envs/databases/db-mysql.env
         required: false
-      - path: ./envs/databases/redis.env
+      - path: ./docker/envs/databases/redis.env
         required: false
       - ./.env
-      - ./envs/core-services/api-worker.defaults
-      - ./envs/core-services/plugin-daemon.defaults
+      - ./docker/envs/core-services/api-worker.defaults
+      - ./docker/envs/core-services/plugin-daemon.defaults
     networks:
       - ssrf_proxy_network
       - default
@@ -554,7 +554,7 @@ services:
     ports:
       - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5003}:${PLUGIN_DEBUGGING_PORT:-5003}"
     volumes:
-      - ./volumes/plugin_daemon:/app/storage
+      - ./docker/volumes/plugin_daemon:/app/storage
     depends_on:
       db_postgres:
         condition: service_healthy
@@ -563,14 +563,14 @@ services:
     image: langgenius/dify-agent-backend:1.19.0
     restart: always
     env_file:
-      - path: ./envs/security.env
+      - path: ./docker/envs/security.env
         required: false
-      - path: ./envs/databases/redis.env
+      - path: ./docker/envs/databases/redis.env
         required: false
-      - path: ./envs/core-services/dify-agent.env
+      - path: ./docker/envs/core-services/dify-agent.env
         required: false
       - ./.env
-      - ./envs/core-services/dify-agent.defaults
+      - ./docker/envs/core-services/dify-agent.defaults
     environment:
       DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN: ${DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN:-${DIFY_AGENT_SHELLCTL_AUTH_TOKEN:-}}
     depends_on:
@@ -589,9 +589,9 @@ services:
     image: ubuntu/squid:latest
     restart: always
     volumes:
-      - ./ssrf_proxy/squid-agent.conf.template:/etc/squid/squid.conf.template
-      - ./ssrf_proxy/squid-common.conf.template:/etc/squid/dify_common.conf.template
-      - ./ssrf_proxy/docker-agent-entrypoint.sh:/docker-entrypoint-mount.sh
+      - ./docker/ssrf_proxy/squid-agent.conf.template:/etc/squid/squid.conf.template
+      - ./docker/ssrf_proxy/squid-common.conf.template:/etc/squid/dify_common.conf.template
+      - ./docker/ssrf_proxy/docker-agent-entrypoint.sh:/docker-entrypoint-mount.sh
     entrypoint:
       [
         "sh",
@@ -599,9 +599,9 @@ services:
         "cp /docker-entrypoint-mount.sh /docker-entrypoint.sh && sed -i 's/\r$$//' /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh && /docker-entrypoint.sh",
       ]
     env_file:
-      - path: ./envs/infrastructure/ssrf-proxy.env
+      - path: ./docker/envs/infrastructure/ssrf-proxy.env
         required: false
-      - ./envs/infrastructure/ssrf-proxy.defaults
+      - ./docker/envs/infrastructure/ssrf-proxy.defaults
     networks:
       # Needs to reach api and agent_backend as forward-proxy destinations.
       - default
@@ -614,15 +614,15 @@ services:
   # https://docs.dify.ai/en/self-host/deploy/troubleshooting/docker-issues#why-is-ssrf-proxy-needed
   ssrf_proxy:
     env_file:
-      - path: ./envs/infrastructure/ssrf-proxy.env
+      - path: ./docker/envs/infrastructure/ssrf-proxy.env
         required: false
-      - ./envs/infrastructure/ssrf-proxy.defaults
+      - ./docker/envs/infrastructure/ssrf-proxy.defaults
     image: ubuntu/squid:latest
     restart: always
     volumes:
-      - ./ssrf_proxy/squid.conf.template:/etc/squid/squid.conf.template
-      - ./ssrf_proxy/squid-common.conf.template:/etc/squid/dify_common.conf.template
-      - ./ssrf_proxy/docker-entrypoint.sh:/docker-entrypoint-mount.sh
+      - ./docker/ssrf_proxy/squid.conf.template:/etc/squid/squid.conf.template
+      - ./docker/ssrf_proxy/squid-common.conf.template:/etc/squid/dify_common.conf.template
+      - ./docker/ssrf_proxy/docker-entrypoint.sh:/docker-entrypoint-mount.sh
     entrypoint:
       [
         "sh",
@@ -637,21 +637,21 @@ services:
   # use `docker-compose --profile certbot up` to start the certbot service.
   nginx:
     env_file:
-      - path: ./envs/infrastructure/nginx.env
+      - path: ./docker/envs/infrastructure/nginx.env
         required: false
-      - ./envs/infrastructure/nginx.defaults
+      - ./docker/envs/infrastructure/nginx.defaults
     image: nginx:latest
     restart: always
     volumes:
-      - ./nginx/nginx.conf.template:/etc/nginx/nginx.conf.template
-      - ./nginx/proxy.conf.template:/etc/nginx/proxy.conf.template
-      - ./nginx/https.conf.template:/etc/nginx/https.conf.template
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/docker-entrypoint.sh:/docker-entrypoint-mount.sh
-      - ./nginx/ssl:/etc/ssl # cert dir (legacy)
-      - ./volumes/certbot/conf/live:/etc/letsencrypt/live # cert dir (with certbot container)
-      - ./volumes/certbot/conf:/etc/letsencrypt
-      - ./volumes/certbot/www:/var/www/html
+      - ./docker/nginx/nginx.conf.template:/etc/nginx/nginx.conf.template
+      - ./docker/nginx/proxy.conf.template:/etc/nginx/proxy.conf.template
+      - ./docker/nginx/https.conf.template:/etc/nginx/https.conf.template
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/docker-entrypoint.sh:/docker-entrypoint-mount.sh
+      - ./docker/nginx/ssl:/etc/ssl # cert dir (legacy)
+      - ./docker/volumes/certbot/conf/live:/etc/letsencrypt/live # cert dir (with certbot container)
+      - ./docker/volumes/certbot/conf:/etc/letsencrypt
+      - ./docker/volumes/certbot/www:/var/www/html
     entrypoint:
       [
         "sh",
@@ -671,16 +671,16 @@ services:
   # The Weaviate vector store.
   weaviate:
     env_file:
-      - path: ./envs/vectorstores/weaviate.env
+      - path: ./docker/envs/vectorstores/weaviate.env
         required: false
-      - ./envs/vectorstores/weaviate.defaults
+      - ./docker/envs/vectorstores/weaviate.defaults
     image: cr.weaviate.io/semitechnologies/weaviate:1.39.13
     profiles:
       - weaviate
     restart: always
     volumes:
       # Mount the Weaviate data directory to the con tainer.
-      - ./volumes/weaviate:/var/lib/weaviate
+      - ./docker/volumes/weaviate:/var/lib/weaviate
   # OceanBase vector database
 networks:
   # create a network between sandbox, api and ssrf_proxy, and can not access outside.
