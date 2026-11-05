@@ -295,6 +295,9 @@ services:
     <<: *shared-api-config
     image: langgenius/dify-api:1.19.0
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       MODE: api
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-}
     depends_on:
@@ -327,6 +330,9 @@ services:
     profiles:
       - collaboration
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       MODE: api
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-}
     # Resolve websocket settings after loading the shared/API service files.
@@ -359,6 +365,9 @@ services:
     <<: *shared-worker-config
     image: langgenius/dify-api:1.19.0
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       MODE: worker
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-}
     depends_on:
@@ -391,6 +400,9 @@ services:
     <<: *shared-worker-beat-config
     image: langgenius/dify-api:1.19.0
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       MODE: beat
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-}
     depends_on:
@@ -478,6 +490,8 @@ services:
       # Mount the redis data directory to the container.
       - ./docker/volumes/redis/data:/data
     # Set the redis password when startup redis server.
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
     command: ["sh", "-c", 'exec docker-entrypoint.sh redis-server --requirepass "$$REDIS_PASSWORD"']
     healthcheck:
       test:
@@ -565,6 +579,9 @@ services:
       - ssrf_proxy_network
       - default
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       DB_HOST: ${DB_HOST:-db_postgres}
       DB_USERNAME: ${DB_USERNAME:-postgres}
       DB_PASSWORD: ${DB_PASSWORD:-difyai123456}
@@ -599,6 +616,9 @@ services:
       - ./.env
       - ./docker/envs/core-services/dify-agent.defaults
     environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN: ${DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN:-${DIFY_AGENT_SHELLCTL_AUTH_TOKEN:-}}
       DIFY_AGENT_INNER_API_URL: ${PLUGIN_DIFY_INNER_API_URL:-http://api:5001}
       DIFY_AGENT_INNER_API_KEY: ${PLUGIN_DIFY_INNER_API_KEY:-}
