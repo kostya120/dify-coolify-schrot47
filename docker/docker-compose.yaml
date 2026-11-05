@@ -430,6 +430,10 @@ services:
     profiles:
       - postgresql
     restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-difyai123456}
+      POSTGRES_DB: ${DB_DATABASE:-dify}
     # Expand service-file settings inside the container, preserving the image's initialization.
     command:
       - sh
